@@ -10,8 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com.smbc.sg.epix.workflow.dao")
 public class StartGWorkflowApplication {
 
-    // start everything
-    public static void main(String[] args) {
-        SpringApplication.run(StartGWorkflowApplication.class, args);
-    }
+  // start the application
+  public static void main(String[] args) {
+    SpringApplication.run(StartGWorkflowApplication.class, args);
+  }
+  
 }

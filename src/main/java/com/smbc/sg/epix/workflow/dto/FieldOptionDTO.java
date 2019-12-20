@@ -6,10 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SubtypeDTO {
+@ToString
+public class FieldOptionDTO {
+  @Getter
+  @Setter
+  private Long uid;
   @Getter
   @Setter
   private String label;

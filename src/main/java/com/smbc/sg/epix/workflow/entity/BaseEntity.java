@@ -1,8 +1,10 @@
 package com.smbc.sg.epix.workflow.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -11,11 +13,32 @@ import lombok.Setter;
 
 @MappedSuperclass
 public class BaseEntity {
-    
-    @Getter @Setter @Id @Column(name="UID")private Long uid;
-    @Getter @Setter @Column(name="CREATED_BY")private String createdBy;
-    @Getter @Setter @Column(name="CREATED_DATE")private LocalDate createdDate;
-    @Getter @Setter @Column(name="UPDATED_BY")private String updatedBy;
-    @Getter @Setter @Column(name="UPDATED_DATE")private LocalDate updatedDate;
-    @Getter @Setter @Column(name="DELETE_FLAG")private Boolean deleteFlag;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Getter
+  @Setter
+  @Column(name = "UID")
+  private Long uid;
+  @Getter
+  @Setter
+  @Column(name = "CREATED_BY")
+  private String createdBy;
+  @Getter
+  @Setter
+  @Column(name = "CREATED_DATE")
+  private LocalDateTime createdDate;
+  @Getter
+  @Setter
+  @Column(name = "UPDATED_BY")
+  private String updatedBy;
+  @Getter
+  @Setter
+  @Column(name = "UPDATED_DATE")
+  private LocalDateTime updatedDate;
+  @Getter
+  @Setter
+  @Column(name = "DELETE_FLAG")
+  private Boolean deleteFlag = false;
+
 }

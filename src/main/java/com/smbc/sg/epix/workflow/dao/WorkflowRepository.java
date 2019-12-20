@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import com.smbc.sg.epix.workflow.entity.Workflow;
 
-public interface WorkflowRepository 
-	extends JpaRepository<Workflow, Long>, JpaSpecificationExecutor<Workflow> {
-	
-	public Optional<Workflow> findByWfCode(String wfCode);
+public interface WorkflowRepository
+    extends JpaRepository<Workflow, Long>, JpaSpecificationExecutor<Workflow> {
+
+  public Optional<Workflow> findByWfCode(String wfCode);
 }

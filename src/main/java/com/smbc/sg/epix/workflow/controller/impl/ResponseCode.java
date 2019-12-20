@@ -8,7 +8,5 @@ package com.smbc.sg.epix.workflow.controller.impl;
  * @version 1.0
  */
 public enum ResponseCode {
-	BadArgument,
-	RecordNotFound,
-	DuplicateWorkflowCode
+  BadArgument, RecordNotFound, DuplicateWorkflowCode
 }

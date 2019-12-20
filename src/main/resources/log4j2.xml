@@ -1,53 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="DEBUG">
-    <Appenders>
-    
-        <Console name="LogToConsole" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </Console>
-        
-        <RollingRandomAccessFile name="LogToRollingFile" fileName="logs/myworkflow.log"
-                    filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}-%i.myworkflow.log.gz">
-                    
-	        <PatternLayout>
-	            <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
-	        </PatternLayout>
-	        
-	        <Policies>
-	            <TimeBasedTriggeringPolicy />
-	            <SizeBasedTriggeringPolicy size="10 MB"/>
-	        </Policies>
-	        
-	        <DefaultRolloverStrategy max="20"/>
-	        
-	    </RollingRandomAccessFile>
-	    
-	    <Async name="AsyncLogToRollingFile">
-            <AppenderRef ref="LogToRollingFile"/>
-        </Async>
-        
+	<Appenders>
+
+		<Console name="LogToConsole" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<RollingRandomAccessFile
+			name="LogToRollingFile" fileName="logs/myworkflow.log"
+			filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}-%i.myworkflow.log.gz">
+
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+
+			<DefaultRolloverStrategy max="20" />
+
+		</RollingRandomAccessFile>
+
+		<Async name="AsyncLogToRollingFile">
+			<AppenderRef ref="LogToRollingFile" />
+		</Async>
+
 	</Appenders>
-        
-    <Loggers>
-    
-        <Logger name="com.smbc" level="debug" additivity="false">
-            <AppenderRef ref="AsyncLogToRollingFile"/>
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        
-        <Logger name="org.springframework.boot" level="error" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        
-        <Logger name="org.hibernate" level="debug" additivity="false">
-        	<AppenderRef ref="AsyncLogToRollingFile"/>
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        
-        <Root level="debug">
-            <AppenderRef ref="LogToRollingFile"/>
-            <AppenderRef ref="LogToConsole"/>
-        </Root>
-        
-    </Loggers>
+
+	<Loggers>
+
+		<Logger name="com.smbc" level="debug" additivity="false">
+			<AppenderRef ref="AsyncLogToRollingFile" />
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+
+		<Logger name="org.springframework.boot" level="error"
+			additivity="false">
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+
+		<Logger name="org.hibernate" level="debug" additivity="false">
+			<AppenderRef ref="AsyncLogToRollingFile" />
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+
+		<Root level="debug">
+			<AppenderRef ref="LogToRollingFile" />
+			<AppenderRef ref="LogToConsole" />
+		</Root>
+
+	</Loggers>
 </Configuration>
