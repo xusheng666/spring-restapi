@@ -14,5 +14,5 @@ public class StartGWorkflowApplication {
   public static void main(String[] args) {
     SpringApplication.run(StartGWorkflowApplication.class, args);
   }
-  
+
 }
